@@ -1,9 +1,6 @@
-# 2019 Level Up
+# 2019 Level Up—Using Jest and Enzyme
 
-## Using Jest and Enzyme
 
-### Slide Deck
-
-Rich Sturim's slide deck for DDC Level Up Conference. 
+_Rich Sturim's slide deck for DDC Level Up Conference_
 
 A short discussion covering the Jest and Enyme test libraries
