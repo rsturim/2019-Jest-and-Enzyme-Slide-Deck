@@ -2,7 +2,7 @@
 
 ## Using Jest and Enzyme
 
-###Slide Deck
+### Slide Deck
 
 Rich Sturim's slide deck for DDC Level Up Conference. 
 
