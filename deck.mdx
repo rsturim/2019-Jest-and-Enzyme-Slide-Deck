@@ -44,7 +44,7 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 ---
 
-# What we'll cover
+## What we'll cover
 
 ### Jest
 
@@ -166,7 +166,7 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
     showNumbers={false}
     steps={[
         { notes: '' },
-        { lines: [1, 8], notes: 'test' },
+        { lines: [1, 9], notes: 'test' },
         { range: [2, 4], notes: 'expectation' },
         { range: [5, 8], notes: 'outcome to verify' },
     ]}
@@ -174,7 +174,7 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 ---
 
-### "Matchers" let you test values in different ways.
+"Matchers" let you test value types in different ways.
 
 ---
 
@@ -215,7 +215,7 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
     steps={[
         { range: [1, 7] },
         { range: [1, 12] },
-        { tokens: { 10: [6, 7, 8, 9, 10] }, notes: 'toContain' },
+        { tokens: { 10: [6, 7, 8, 9, 10] } },
     ]}
 />
 
@@ -403,7 +403,7 @@ been over 52 versions
 ---
 
 <CodeSurfer
-    title="Enzyme polfill config"
+    title="Enzyme polyfill config"
     showNumbers={false}
     code={require('!raw-loader!./snippets/5-package.js')}
     theme={nightOwl}
@@ -411,10 +411,9 @@ been over 52 versions
     notes="somewhere in your project"
     steps={[
         { notes: 'designate the setupFilesAfterEnv' },
-        { lines: [50], notes: 'Jest is installed' },
+        { lines: [23, 24] },
         { range: [50, 53], notes: 'Jest entry' },
         { lines: [51], notes: 'reference the enyzme polyfill' },
-        { lines: [52], notes: 'test shim' },
     ]}
 />
 
@@ -449,6 +448,8 @@ been over 52 versions
 # Shallow Rendering
 
 "_Shallow rendering is useful to constrain yourself to testing a component as a unit, and to ensure that your tests aren't indirectly asserting on behavior of child components._"
+
+---
 
 ---
 
