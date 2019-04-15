@@ -1,12 +1,23 @@
-import { Head, Image, Notes, Appear } from "mdx-deck";
-import { Invert, Split, SplitRight, FullScreenCode, Horizontal } from "mdx-deck/layouts";
+import { Head, Image, Notes, Appear } from 'mdx-deck';
 
-import { CodeSurfer } from "mdx-deck-code-surfer";
+import {
+    Invert,
+    Split,
+    SplitRight,
+    FullScreenCode,
+    Horizontal,
+} from 'mdx-deck/layouts';
 
-export { hack as theme } from "mdx-deck/themes";
+import { CodeSurfer } from 'mdx-deck-code-surfer';
+
+export { hack as theme } from 'mdx-deck/themes';
+
+import nightOwl from 'prism-react-renderer/themes/nightOwl';
+
+<!-- // export { default as theme } from "./theme.js"; -->
 
 <Head>
-  <title>Testing React Components with Jest and Enyzme</title>
+    <title>Testing React Components with Jest and Enyzme</title>
 </Head>
 
 # Level Up 2019
@@ -25,78 +36,430 @@ export { hack as theme } from "mdx-deck/themes";
 
 ---
 
-# Topics
+## Rich Sturim
+
+#### Senior UI Developer
+
+##### 2-Weeks Mitosis
+
+---
+
+# What we'll cover
+
+### Jest
 
 <ul>
-  <Appear>
-    <li>What is Jest</li>
-    <li>What is Enyzme</li>
-    <li>Setup and configuations</li>
-    <li>What they do</li>
-    <li>Strengths</li>
-    <li>Weakness</li>
-    <li>Basics</li>
-    <li>Advanced features</li>
-  </Appear>
+    <Appear>
+        <li>What is Jest?</li>
+        <li>Installation and setup</li>
+        <li>Basic Features</li>
+    </Appear>
+
+</ul>
+
+### Enyzme
+
+<ul>
+    <Appear>
+        <li>What is Enzyme?</li>
+        <li>Installation and setup</li>
+        <li>Basic Features</li>
+        <li>Dig into the API</li>
+        <li>Shallow Rendering</li>
+        <li>Full DOM Rendering</li>
+        <li>React lifecycles</li>
+        <li>props and state</li>
+        <li>simulating user events</li>
+        <li>jest snapshots to guarantee layout of component elements</li>
+    </Appear>
+
 </ul>
 
 ---
 
-## What is Jest
+<Image src="./images/jest.svg" size="600px" />
 
 ---
 
-## What is Enyzme
+# Jest
+
+## 24.7
+
+### https://jestjs.io/
+
+### **_"Jest is a delightful JavaScript Testing Framework with a focus on simplicity"_**
 
 ---
 
-## Jest Topics
+# Jest
 
 <ul>
-  <Appear>
-    <li>setup</li>
-    <li>installaton</li>
-    <li>configuration</li>
-    <li>assertions</li>
-    <li>run modes</li>
-  </Appear>
+    <li>Test runner</li>
+    <li>Assertion library (very much like Jasmine)</li>
 </ul>
 
 ---
 
-## Jest and Enyzme
+## Jest works with ...
 
-<ul>
-  <Appear>
-    <li>selectors</li>
-    <li>rendering methods</li>
-    <li>snapshot testing</li>
-    <li>replicate user actions</li>
-  </Appear>
-</ul>
-
----
-
-# advanced topics
-
-- React lifecycles
-- component state
-- component props
-
-<Notes>Create speaker notes with the Notes component</Notes>
-
----
-
-# Good to haves
-
-- some programming knowledge
-- curiosiy of React
+-   ReactJs
+-   TypeScript
+-   Node
+-   Angular
+-   Vue
+-   and more
 
 ---
 
 <CodeSurfer
-title="this is some javscript"
-  code={require("raw-loader!./snippets/1.snippet.js")}
-  showNumbers
+    title="Jest Installation"
+    theme={nightOwl}
+    notes="Can be install with yarn or npm"
+    code={require('!raw-loader!./snippets/2.jest-install.cmd')}
+/>
+
+---
+
+<CodeSurfer
+    title="typical package.json"
+    lang="javascript"
+    theme={nightOwl}
+    notes="some notes"
+    showNumbers={false}
+    code={require('!raw-loader!./snippets/5-package.js')}
+    notes="somewhere in your project"
+    steps={[
+        { notes: '' },
+        { lines: [33], notes: 'Jest is installed' },
+        { range: [2, 11], notes: 'custom scripts' },
+        { range: [5, 6], notes: 'Jest test' },
+        { lines: [5], notes: 'run all tests once  `npm run test`' },
+        {
+            lines: [6],
+            notes: 'run all tests once and watch `npm run test-watch`',
+        },
+    ]}
+/>
+
+---
+
+<CodeSurfer
+    showNumbers={false}
+    code={require('!raw-loader!./snippets/6.function.js')}
+    title='simple "sum" function'
+    theme={nightOwl}
+    lang="javascript"
+/>
+
+---
+
+## Anatomy of a test
+
+---
+
+<CodeSurfer
+    title="one test unit"
+    code={require('!raw-loader!./snippets/6b.expect.js')}
+    lang="javascript"
+    theme={nightOwl}
+    notes="notes"
+    showNumbers={false}
+    steps={[
+        { notes: '' },
+        { lines: [1, 8], notes: 'test' },
+        { range: [2, 4], notes: 'expectation' },
+        { range: [5, 8], notes: 'outcome to verify' },
+    ]}
+/>
+
+---
+
+### "Matchers" let you test values in different ways.
+
+---
+
+<CodeSurfer
+    title="Truthiness"
+    code={require('!raw-loader!./snippets/7a.truthyness-matchers.js')}
+    lang="javascript"
+    theme={nightOwl}
+    notes="Truthiness, in tests you sometimes need to distinguish between undefined, null, and false"
+    steps={[
+        { lines: [1, 2, 8] },
+        { range: [1, 8] },
+        { lines: [10, 11, 17] },
+        { range: [10, 17] },
+    ]}
+/>
+
+---
+
+<CodeSurfer
+    title="Number matchers"
+    code={require('!raw-loader!./snippets/7b.number-matchers.js')}
+    lang="javascript"
+    theme={nightOwl}
+    notes="Most ways of comparing numbers have matcher equivalents"
+    steps={[{ lines: [1, 2, 10] }, { range: [1, 10] }]}
+/>
+
+---
+
+<CodeSurfer
+    title="Arrays and iterables"
+    code={require('!raw-loader!./snippets/7c.array-matchers.js')}
+    lang="javascript"
+    theme={nightOwl}
+    notes="You can check if an array or iterable contains a particular item using 'toContain'"
+    showNumbers={false}
+    steps={[
+        { range: [1, 7] },
+        { range: [1, 12] },
+        { tokens: { 10: [6, 7, 8, 9, 10] }, notes: 'toContain' },
+    ]}
+/>
+
+---
+
+<CodeSurfer
+    title="String matchers"
+    code={require('!raw-loader!./snippets/7d.string-matchers.js')}
+    lang="javascript"
+    theme={nightOwl}
+    notes="You can check strings against regular expressions with 'toMatch'"
+    showNumbers={false}
+    steps={[
+        { range: [1, 7] },
+        { range: [1, 3] },
+        { tokens: { 2: [7, 8, 9, 10, 11, 12] }, notes: 'regex' },
+        { range: [5, 7] },
+        { tokens: { 6: [5, 6, 7, 8, 9, 10] }, notes: 'regex' },
+    ]}
+/>
+
+---
+
+<CodeSurfer
+    title="Exception matchers"
+    code={require('!raw-loader!./snippets/7e.exception-matchers.js')}
+    lang="javascript"
+    theme={nightOwl}
+    notes="If you want to test that a particular function throws an error when it's called, use 'toThrow'"
+    showNumbers={false}
+    steps={[
+        { range: [1, 3] },
+        { range: [1, 12] },
+        {
+            tokens: {
+                6: [5, 6, 7, 8, 9],
+                7: [5, 6, 7, 8, 9, 10],
+                10: [5, 6, 7, 8, 9, 10],
+                11: [5, 6, 7, 8, 9, 10],
+            },
+            notes: 'exceptions',
+        },
+    ]}
+/>
+
+---
+
+<CodeSurfer
+    title="So many matchers"
+    code={require('!raw-loader!./snippets/7f.all-jest-matchers.js')}
+    theme={nightOwl}
+    lang="javascript"
+/>
+
+---
+
+<CodeSurfer
+    title="The most common"
+    code={require('!raw-loader!./snippets/7g.most-common-matchers.js')}
+    theme={nightOwl}
+    notes="these can go a loooooong way"
+    lang="javascript"
+/>
+
+---
+
+## Anatomy of several tests
+
+---
+
+<CodeSurfer
+    title="Describe blocks"
+    code={require('!raw-loader!./snippets/8.describe.js')}
+    theme={nightOwl}
+    lang="javascript"
+    showNumbers={false}
+    steps={[
+        { notes: '' },
+        { range: [1, 4] },
+        { lines: [6, 14] },
+        { range: [6, 14] },
+        { range: [7, 9] },
+        { range: [11, 13] },
+        { range: [1, 15] },
+    ]}
+/>
+
+---
+
+## Setup and Teardown
+
+### Each time
+
+### _before and/or after EACH test runs_
+
+---
+
+<CodeSurfer
+    title="beforeEach() and afterEach()"
+    code={require('!raw-loader!./snippets/8a.each.js')}
+    theme={nightOwl}
+    lang="javascript"
+    showNumbers={false}
+    steps={[
+        { notes: 'Repeating Setup For Many Tests' },
+        { range: [1, 7] },
+        { range: [1, 17] },
+    ]}
+/>
+
+---
+
+## Setup and Teardown
+
+### One Time
+
+### _before and/or after ALL tests run_
+
+---
+
+<CodeSurfer
+    title="Setup and Teardown — all"
+    code={require('!raw-loader!./snippets/8b.onetime.js')}
+    theme={nightOwl}
+    lang="javascript"
+    showNumbers={false}
+    steps={[{ notes: 'One-Time Setup' }, { range: [1, 9] }, { range: [1, 19] }]}
+/>
+
+---
+
+<CodeSurfer
+    title="Scoping Setup and Teardown"
+    code={require('!raw-loader!./snippets/8c.scoping.js')}
+    theme={nightOwl}
+    lang="javascript"
+    showNumbers={false}
+    steps={[
+        { notes: '' },
+        { range: [1, 4] },
+        { range: [1, 27] },
+        { range: [14, 27] },
+        { range: [16, 18] },
+        { range: [14, 27] },
+    ]}
 />
 ---
+
+<Image src="./images/airbnb.png" size="200px" />
+
+---
+
+# Enyzme
+
+## 3.9.0
+
+### https://airbnb.io/enzyme/
+
+---
+
+# What is Enzyme?
+
+## Enzyme is a JavaScript library for testing your React Components.
+
+```notes
+started over 3 years ago
+been over 52 versions
+```
+
+---
+
+<CodeSurfer
+    title="Enzyme Installation"
+    theme={nightOwl}
+    notes="Can be install with yarn or npm"
+    code={require('!raw-loader!./snippets/3.enzyme-install.cmd')}
+    showNumbers={false}
+    steps={[
+        { notes: 'use with reactjs will require this' },
+        { lines: [1], notes: 'reference the enyzme polyfill' },
+        { lines: [3], notes: 'test shim' },
+    ]}
+/>
+
+---
+
+<CodeSurfer
+    title="Enzyme polfill config"
+    showNumbers={false}
+    code={require('!raw-loader!./snippets/5-package.js')}
+    theme={nightOwl}
+    lang="javascript"
+    notes="somewhere in your project"
+    steps={[
+        { notes: 'designate the setupFilesAfterEnv' },
+        { lines: [50], notes: 'Jest is installed' },
+        { range: [50, 53], notes: 'Jest entry' },
+        { lines: [51], notes: 'reference the enyzme polyfill' },
+        { lines: [52], notes: 'test shim' },
+    ]}
+/>
+
+---
+
+<CodeSurfer
+    title="Enzyme Setup Polyfil"
+    theme={nightOwl}
+    notes="enzyme.setup.js"
+    code={require('!raw-loader!./snippets/4.setup.js')}
+/>
+
+---
+
+## Two Rendering methods for components
+
+<ul>
+ <li>
+
+### Shallow rendering
+
+</li>
+ <li>
+
+### Full DOM rendering
+
+</li>
+</ul>
+
+---
+
+# Shallow Rendering
+
+"_Shallow rendering is useful to constrain yourself to testing a component as a unit, and to ensure that your tests aren't indirectly asserting on behavior of child components._"
+
+---
+
+# Full DOM Rendering
+
+"_Full DOM rendering is ideal for use cases where you have components that may interact with DOM APIs or need to test components that are wrapped in higher order components._"
+
+---
+
+<Invert>
+
+# Questions?
+
+</Invert>
