@@ -430,18 +430,109 @@ been over 52 versions
 
 ## Two Rendering methods for components
 
-<ul>
- <li>
-
 ### Shallow rendering
 
-</li>
- <li>
+---
+
+shallow, what is means
+console logging and the debug method of the wrapper
+
+```
+console.log(wrapper.debug());
+```
+
+searching for given nodes
+
+-   find with length
+-   find to exist to be true
+-   ul children length
+-   find ul, verify it has a specific class
+-   find item, text == something specific
+
+---
+
+enzyme selectors
+
+## there are 5 categories of accepted enzyme selectors
+
+---
+
+enzyme selectors (cont)
+CSS selectors
+
+-   html element -- h1
+-   class syntax - '.btn-primary'
+-   id syntax - '#section-one'
+-   attribute syntax - [href='www.dealer.com/leads']
+-   combined attribute syntax - a[href='www.dealer.com/leads']
+
+---
+
+enzyme selectors (cont)
+
+prop selectorS - attribute syntax to look for the element
+
+```
+expect(wrapper.find('[text="Some title"]').text()).toBe('Welcome to React')
+```
+
+---
+
+enzyme selectors (cont)
+
+third categories entails referencing a component's constructor
+
+```
+
+function MyComponent() {
+return <div />;
+}
+
+// find instances of MyComponent
+const myComponents = wrapper.find(MyComponent);
+
+```
+
+---
+
+enzyme selectors (cont)
+
+fourth entails referencing a components display name
+
+```
+
+function MyComponent() {
+return <div />;
+}
+MyComponent.displayName = 'My Component';
+
+// find instances of MyComponent
+const myComponents = wrapper.find('My Component');
+
+```
+
+---
+
+enzyme selectors (cont)
+
+fifth -- object property selector
+
+```
+
+<img src={logo} className="app-logo" alt="logo" />
+
+
+wrapper.find({ alt: 'logo' });
+
+```
+
+---
+
+### Jest Snapshot testing with React Components
+
+---
 
 ### Full DOM rendering
-
-</li>
-</ul>
 
 ---
 
@@ -464,3 +555,12 @@ been over 52 versions
 # Questions?
 
 </Invert>
+
+---
+
+thing to cover
+shallow
+
+```
+
+```
