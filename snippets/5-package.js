@@ -49,7 +49,6 @@
     },
     "jest": {
         "setupFilesAfterEnv": ["./src/polyfills/enzyme.setup.js"],
-        "testURL": "http://localhost"
     },
     "browserslist": {
         "development": [

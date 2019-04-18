@@ -1,4 +1,4 @@
-test('null', () => {
+test('a variable set to null should', () => {
     const n = null;
     expect(n).toBeNull();
     expect(n).toBeDefined();
@@ -7,7 +7,7 @@ test('null', () => {
     expect(n).toBeFalsy();
 });
 
-test('zero', () => {
+test('variable set to zero should', () => {
     const z = 0;
     expect(z).not.toBeNull();
     expect(z).toBeDefined();

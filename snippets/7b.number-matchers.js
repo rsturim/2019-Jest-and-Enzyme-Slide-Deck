@@ -1,4 +1,4 @@
-test('two plus two', () => {
+test('two plus two should', () => {
     const value = 2 + 2;
     expect(value).toBeGreaterThan(3);
     expect(value).toBeGreaterThanOrEqual(3.5);

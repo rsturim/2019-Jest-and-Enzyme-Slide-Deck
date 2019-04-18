@@ -18,11 +18,17 @@ export default {
     // extends the default theme
     ...theme,
 
-    font: 'Roboto, sans-serif',
+    // font: 'Roboto, sans-serif',
+    // font: '"Avenir Next", system-ui, sans-serif',
     css: {
-        fontSize: '1em',
+        fontSize: '1.4em',
     },
 
+    font: '"Roboto Condensed", system-ui, sans-serif',
+    weights: [400, 700],
+    monospace: '"Roboto Mono", monospace',
+    googleFont:
+        'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono',
     colors: {
         text: 'orange',
         background: '#000',
@@ -42,6 +48,6 @@ export default {
         // letterSpacing: "0.1em"
     },
     ul: {
-        fontSize: '18px',
+        fontSize: '32px',
     },
 };

@@ -10,11 +10,9 @@ import {
 
 import { CodeSurfer } from 'mdx-deck-code-surfer';
 
-export { hack as theme } from 'mdx-deck/themes';
-
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
-<!-- // export { default as theme } from "./theme.js"; -->
+export { default as theme } from './theme.js';
 
 <Head>
     <title>Testing React Components with Jest and Enyzme</title>
@@ -36,11 +34,11 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 ---
 
-## Rich Sturim
+# Rich Sturim
 
-#### Senior UI Developer
+## Senior UI Developer
 
-##### 2-Weeks Mitosis
+### Two Week Mitosis (Advertising)
 
 ---
 
@@ -67,12 +65,11 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
         <li>Dig into the API</li>
         <li>Shallow Rendering</li>
         <li>Full DOM Rendering</li>
+        <li>Snapshots</li>
+        <li>Simulating User Events</li>
+        <li>Props and State</li>
         <li>React lifecycles</li>
-        <li>props and state</li>
-        <li>simulating user events</li>
-        <li>jest snapshots to guarantee layout of component elements</li>
     </Appear>
-
 </ul>
 
 ---
@@ -87,22 +84,20 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 ### https://jestjs.io/
 
-### **_"Jest is a delightful JavaScript Testing Framework with a focus on simplicity"_**
-
 ---
 
 # Jest
 
-<ul>
-    <li>Test runner</li>
-    <li>Assertion library (very much like Jasmine)</li>
-</ul>
+## - Test runner
+
+## - Assertion library (very much like Jasmine)
+
+### (lots and lots more)
 
 ---
 
-## Jest works with ...
+## Jest also works with ...
 
--   ReactJs
 -   TypeScript
 -   Node
 -   Angular
@@ -127,16 +122,15 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
     notes="some notes"
     showNumbers={false}
     code={require('!raw-loader!./snippets/5-package.js')}
-    notes="somewhere in your project"
     steps={[
         { notes: '' },
         { lines: [33], notes: 'Jest is installed' },
         { range: [2, 11], notes: 'custom scripts' },
-        { range: [5, 6], notes: 'Jest test' },
-        { lines: [5], notes: 'run all tests once  `npm run test`' },
+        { range: [5, 6], notes: 'test commands' },
+        { lines: [5], notes: 'npm run test' },
         {
             lines: [6],
-            notes: 'run all tests once and watch `npm run test-watch`',
+            notes: 'npm run test-watch',
         },
     ]}
 />
@@ -153,12 +147,8 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 ---
 
-## Anatomy of a test
-
----
-
 <CodeSurfer
-    title="one test unit"
+    title="Anatomy of a test"
     code={require('!raw-loader!./snippets/6b.expect.js')}
     lang="javascript"
     theme={nightOwl}
@@ -174,7 +164,7 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 ---
 
-"Matchers" let you test value types in different ways.
+# Matchers
 
 ---
 
@@ -228,13 +218,6 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
     theme={nightOwl}
     notes="You can check strings against regular expressions with 'toMatch'"
     showNumbers={false}
-    steps={[
-        { range: [1, 7] },
-        { range: [1, 3] },
-        { tokens: { 2: [7, 8, 9, 10, 11, 12] }, notes: 'regex' },
-        { range: [5, 7] },
-        { tokens: { 6: [5, 6, 7, 8, 9, 10] }, notes: 'regex' },
-    ]}
 />
 
 ---
@@ -297,9 +280,6 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
         { range: [1, 4] },
         { lines: [6, 14] },
         { range: [6, 14] },
-        { range: [7, 9] },
-        { range: [11, 13] },
-        { range: [1, 15] },
     ]}
 />
 
@@ -345,23 +325,6 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl';
     steps={[{ notes: 'One-Time Setup' }, { range: [1, 9] }, { range: [1, 19] }]}
 />
 
----
-
-<CodeSurfer
-    title="Scoping Setup and Teardown"
-    code={require('!raw-loader!./snippets/8c.scoping.js')}
-    theme={nightOwl}
-    lang="javascript"
-    showNumbers={false}
-    steps={[
-        { notes: '' },
-        { range: [1, 4] },
-        { range: [1, 27] },
-        { range: [14, 27] },
-        { range: [16, 18] },
-        { range: [14, 27] },
-    ]}
-/>
 ---
 
 <Image src="./images/airbnb.png" size="200px" />
@@ -412,7 +375,7 @@ been over 52 versions
     steps={[
         { notes: 'designate the setupFilesAfterEnv' },
         { lines: [23, 24] },
-        { range: [50, 53], notes: 'Jest entry' },
+        { range: [50, 52], notes: 'Jest entry' },
         { lines: [51], notes: 'reference the enyzme polyfill' },
     ]}
 />
@@ -428,26 +391,59 @@ been over 52 versions
 
 ---
 
-## Two Rendering methods for components
-
-### Shallow rendering
+<CodeSurfer
+    title="Enzyme Setup Polyfil"
+    theme={nightOwl}
+    notes="enzyme.setup.js"
+    showNumbers={false}
+    code={require('!raw-loader!./snippets/4b.setup.js')}
+    steps={[{ range: [1, 17] }, { range: [5, 8] }]}
+/>
 
 ---
 
-shallow, what is means
-console logging and the debug method of the wrapper
+## Two Rendering methods for components
+
+---
+
+# Shallow Rendering
 
 ```
+import { shallow } from 'enzyme';
+
+const wrapper = shallow(<PlanetList />);
+```
+
+---
+
+# Full DOM Rendering
+
+```
+import { mount } from 'enzyme';
+
+const wrapper = mount(<PlanetList />);
+```
+
+---
+
+# Debugging
+
+```
+const wrapper = shallow(<PlanetList />);
+
 console.log(wrapper.debug());
 ```
 
-searching for given nodes
+---
 
--   find with length
--   find to exist to be true
--   ul children length
--   find ul, verify it has a specific class
--   find item, text == something specific
+<CodeSurfer
+    title="Debug Output for Shallow Rendering"
+    code={require('!raw-loader!./snippets/9.debugging.js')}
+    lang="javascript"
+    showNumbers={false}
+    theme={nightOwl}
+    notes="Planets.test.js"
+/>
 
 ---
 
@@ -457,96 +453,81 @@ enzyme selectors
 
 ---
 
-enzyme selectors (cont)
-CSS selectors
-
--   html element -- h1
--   class syntax - '.btn-primary'
--   id syntax - '#section-one'
--   attribute syntax - [href='www.dealer.com/leads']
--   combined attribute syntax - a[href='www.dealer.com/leads']
-
----
-
-enzyme selectors (cont)
-
-prop selectorS - attribute syntax to look for the element
-
-```
-expect(wrapper.find('[text="Some title"]').text()).toBe('Welcome to React')
-```
-
----
-
-enzyme selectors (cont)
-
-third categories entails referencing a component's constructor
-
-```
-
-function MyComponent() {
-return <div />;
-}
-
-// find instances of MyComponent
-const myComponents = wrapper.find(MyComponent);
-
-```
+<CodeSurfer
+    title="CSS selectors"
+    code={require('!raw-loader!./snippets/10.selector.js')}
+    lang="javascript"
+    showNumbers={false}
+    theme={nightOwl}
+    notes="notes"
+    steps={[
+        { lines: [1] },
+        { range: [3, 4] },
+        { range: [6, 7] },
+        { range: [9, 10] },
+        { range: [12, 13] },
+        { range: [15, 16] },
+        { range: [18, 19] },
+    ]}
+/>
 
 ---
 
-enzyme selectors (cont)
-
-fourth entails referencing a components display name
-
-```
-
-function MyComponent() {
-return <div />;
-}
-MyComponent.displayName = 'My Component';
-
-// find instances of MyComponent
-const myComponents = wrapper.find('My Component');
-
-```
+<CodeSurfer
+    title="Constructor selector"
+    code={require('!raw-loader!./snippets/11.ctor.js')}
+    lang="javascript"
+    showNumbers={false}
+    theme={nightOwl}
+    steps={[{ range: [1, 3] }, { range: [1, 6] }]}
+/>
 
 ---
 
-enzyme selectors (cont)
-
-fifth -- object property selector
-
-```
-
-<img src={logo} className="app-logo" alt="logo" />
-
-
-wrapper.find({ alt: 'logo' });
-
-```
+<CodeSurfer
+    title="Components display name"
+    code={require('!raw-loader!./snippets/12.displayname.js')}
+    lang="javascript"
+    showNumbers={false}
+    theme={nightOwl}
+    steps={[{ range: [1, 5] }, { range: [1, 8] }]}
+/>
 
 ---
 
-### Jest Snapshot testing with React Components
+<CodeSurfer
+    title="object property selector"
+    code={require('!raw-loader!./snippets/13.object.js')}
+    lang="javascript"
+    theme={nightOwl}
+/>
 
 ---
 
-### Full DOM rendering
+<CodeSurfer
+    title="Jest + Enzyme"
+    code={require('!raw-loader!./snippets/14.together.js')}
+    lang="javascript"
+    theme={nightOwl}
+/>
 
 ---
 
-# Shallow Rendering
+# Please show us some real code
 
-"_Shallow rendering is useful to constrain yourself to testing a component as a unit, and to ensure that your tests aren't indirectly asserting on behavior of child components._"
-
----
+# 🤦🤦🤦🤦🤦🤦🤦🤦🤦🤦🤦🤦
 
 ---
 
-# Full DOM Rendering
+# demo-app project
 
-"_Full DOM rendering is ideal for use cases where you have components that may interact with DOM APIs or need to test components that are wrapped in higher order components._"
+-   App.test.js
+
+---
+
+-   Jest Snapshot testing with React Components
+
+-   Code coverage
 
 ---
 
@@ -558,9 +539,11 @@ wrapper.find({ alt: 'logo' });
 
 ---
 
-thing to cover
-shallow
+# github.com/rsturim
 
-```
+## repo: _demo-app_
 
-```
+## slack: _richie_rich_
+
+-   mdx-deck
+-   code-surfer
