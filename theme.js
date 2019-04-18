@@ -35,9 +35,7 @@ export default {
         link: '#9AD38B',
     },
 
-    //   li: {
-    //     lineHeight: "600px"
-    //   },
+    li: {},
     //   h1: {
     //     fontSize: "3em",
     //     letterSpacing: "0.1em",
@@ -46,6 +44,9 @@ export default {
     blockquote: {
         fontSize: '18px',
         // letterSpacing: "0.1em"
+    },
+    Appear: {
+        fontSize: '32px',
     },
     ul: {
         fontSize: '32px',

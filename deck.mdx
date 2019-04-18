@@ -1,13 +1,5 @@
-import { Head, Image, Notes, Appear } from 'mdx-deck';
-
-import {
-    Invert,
-    Split,
-    SplitRight,
-    FullScreenCode,
-    Horizontal,
-} from 'mdx-deck/layouts';
-
+import { Head, Image, Appear } from 'mdx-deck';
+import { Invert } from 'mdx-deck/layouts';
 import { CodeSurfer } from 'mdx-deck-code-surfer';
 
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
@@ -18,7 +10,13 @@ export { default as theme } from './theme.js';
     <title>Testing React Components with Jest and Enyzme</title>
 </Head>
 
+<center>
+
 # Level Up 2019
+
+# 🚀
+
+</center>
 
 ---
 
@@ -29,6 +27,8 @@ export { default as theme } from './theme.js';
 ### _using_
 
 ## _Jest and Enyzme_
+
+# 🚀
 
 </center>
 
@@ -48,9 +48,10 @@ export { default as theme } from './theme.js';
 
 <ul>
     <Appear>
-        <li>What is Jest?</li>
+        <li>What the heck is it?</li>
         <li>Installation and setup</li>
         <li>Basic Features</li>
+        <li>Snapshot testing</li>
     </Appear>
 
 </ul>
@@ -59,17 +60,18 @@ export { default as theme } from './theme.js';
 
 <ul>
     <Appear>
-        <li>What is Enzyme?</li>
+        <li>What the heck is it?</li>
         <li>Installation and setup</li>
         <li>Basic Features</li>
-        <li>Dig into the API</li>
+        <li>Snapshot testing</li>
         <li>Shallow Rendering</li>
         <li>Full DOM Rendering</li>
-        <li>Snapshots</li>
         <li>Simulating User Events</li>
         <li>Props and State</li>
         <li>React lifecycles</li>
+        <li>Component instance methods</li>
     </Appear>
+
 </ul>
 
 ---
@@ -447,14 +449,14 @@ console.log(wrapper.debug());
 
 ---
 
-enzyme selectors
+Enzyme Selectors
 
-## there are 5 categories of accepted enzyme selectors
+## there are 4 categories of accepted enzyme selectors
 
 ---
 
 <CodeSurfer
-    title="CSS selectors"
+    title="1. CSS selectors"
     code={require('!raw-loader!./snippets/10.selector.js')}
     lang="javascript"
     showNumbers={false}
@@ -474,7 +476,7 @@ enzyme selectors
 ---
 
 <CodeSurfer
-    title="Constructor selector"
+    title="2. Constructor selector"
     code={require('!raw-loader!./snippets/11.ctor.js')}
     lang="javascript"
     showNumbers={false}
@@ -485,7 +487,7 @@ enzyme selectors
 ---
 
 <CodeSurfer
-    title="Components display name"
+    title="3. Components display name"
     code={require('!raw-loader!./snippets/12.displayname.js')}
     lang="javascript"
     showNumbers={false}
@@ -496,7 +498,7 @@ enzyme selectors
 ---
 
 <CodeSurfer
-    title="object property selector"
+    title="4. Object property selector"
     code={require('!raw-loader!./snippets/13.object.js')}
     lang="javascript"
     theme={nightOwl}
@@ -505,7 +507,7 @@ enzyme selectors
 ---
 
 <CodeSurfer
-    title="Jest + Enzyme"
+    title="All together now — Jest + Enzyme"
     code={require('!raw-loader!./snippets/14.together.js')}
     lang="javascript"
     theme={nightOwl}
@@ -513,21 +515,47 @@ enzyme selectors
 
 ---
 
-# Please show us some real code
+<center>
 
-# 🤦🤦🤦🤦🤦🤦🤦🤦🤦🤦🤦🤦
+# Enough!
+
+## Please show us some real code
+
+# 🤦 🤦 🤦
+
+ </center>
 
 ---
 
 # demo-app project
 
--   App.test.js
+## walkthough
+
+### basic pages + snapshots
+
+-   src/App.test.js
+-   src/pages/tests/ComponentOne.test.js
+-   src/pages/tests/Planets.test.js
+-   src/pages/tests/Address.test.js
 
 ---
 
--   Jest Snapshot testing with React Components
+# demo-app project
 
--   Code coverage
+### enzyme pages
+
+-   src/components/tests/Form.test.js
+-   src/components/tests/PlanetList.test.js
+
+---
+
+# What else?
+
+<Appear>
+    <li> jest --coverage</li>
+    <li> jest --help</li>
+    <li>husky</li>
+</Appear>
 
 ---
 

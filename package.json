@@ -1,32 +1,33 @@
 {
-  "name": "2019-jest-and-enzyme-slide-deck",
-  "version": "1.0.0",
-  "description": "Slide deck for Level Up 2019, Jest and Enzyme test libraries",
-  "scripts": {
-    "start": "mdx-deck deck.mdx"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rsturim/2019-Jest-and-Enzyme-Slide-Deck"
-  },
-  "keywords": [
-    "Jest",
-    "Enzyme",
-    "ReactJs",
-    "MDX"
-  ],
-  "author": "Rich Sturim",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rsturim/2019-Jest-and-Enzyme-Slide-Deck/issues"
-  },
-  "homepage": "https://github.com/rsturim/2019-Jest-and-Enzyme-Slide-Deck/blob/master/README.md",
-  "devDependencies": {
-    "mdx-deck": "^1.8.2",
-    "mdx-deck-code-surfer": "^0.5.3",
-    "raw-loader": "^1.0.0"
-  },
-  "dependencies": {
-    "prism-react-renderer": "^0.1.6"
-  }
+    "name": "2019-jest-and-enzyme-slide-deck",
+    "version": "1.0.0",
+    "description": "Slide deck for Level Up 2019, Jest and Enzyme test libraries",
+    "scripts": {
+        "start": "mdx-deck deck.mdx",
+        "build": "mdx-deck build deck.mdx"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rsturim/2019-Jest-and-Enzyme-Slide-Deck"
+    },
+    "keywords": [
+        "Jest",
+        "Enzyme",
+        "ReactJs",
+        "MDX"
+    ],
+    "author": "Rich Sturim",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/rsturim/2019-Jest-and-Enzyme-Slide-Deck/issues"
+    },
+    "homepage": "https://github.com/rsturim/2019-Jest-and-Enzyme-Slide-Deck/blob/master/README.md",
+    "devDependencies": {
+        "mdx-deck": "^1.8.2",
+        "mdx-deck-code-surfer": "^0.5.3",
+        "raw-loader": "^1.0.0"
+    },
+    "dependencies": {
+        "prism-react-renderer": "^0.1.6"
+    }
 }
